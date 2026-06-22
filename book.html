@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Brasserie</title>
+    <link rel="icon" href="Indian Brasserie (1).png">
+    <link rel="stylesheet" href="restaurant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+      <div class="menu">
+            <div class="logo">
+                <img src="logo.png" alt="LOGO" class="logoimage">
+            </div>
+            <nav class="navmenu">
+                 <ul class="navlist">
+                   <li><a href="restaurant.html">Home</a></li>
+                   <li><a href="menu.html">Menu</a></li>
+                   <li><a href="about.html">About</a></li>
+                   <li><a href="contact.html">Contact</a></li>
+                   <li class="book"><a href="book.html">Book Table</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="bookcontainer">
+              <h1 class="bookheading">Book Table</h1>
+              <form method="post" action="restaurant.html">
+                <table>
+                    <tr>
+                        <td><b><label class="booklabel">First Name</label> </b></td>
+                        <td><b><label class="booklabel">Last Name</label> </b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="booktext" required>
+                        </td>
+                        <td>
+                            <input type="text" class="booktext" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><label class="booklabel">Email</label> </b></td>
+                        <td><b><label class="booklabel">Table Type</label> </b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="email" class="booktext" required>
+                        </td>
+                        <td>
+                            <select class="booktext" required>
+                                <option selected disabled>Choose</option>
+                                <option>Small(2 Persons)</option>
+                                <option>Small(4 Persons)</option>
+                                <option>Large(2 Persons)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><label class="booklabel">Guest Number</label> </b></td>
+                        <td><b><label class="booklabel">Placement</label> </b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" class="booktext" max="50" min="1" required>
+                        </td>
+                        <td>
+                            <select class="booktext" required>
+                                <option selected disabled>Choose</option>
+                                <option>Outdoor</option>
+                                <option>Indoor</option>
+                                <option>Rooftop</option>
+                            </select>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td><b><label class="booklabel">Date</label> </b></td>
+                        <td><b><label class="booklabel">Time</label> </b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="date" class="booktext" required>
+                        </td>
+                        <td>
+                            <input type="time" class="booktext" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><label class="booklabel">Note</label> </b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><textarea class="booktext1" rows="5" cols="10"></textarea></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Book Table" class="press"> 
+              </form>
+        </div>
+         <footer>
+         <div class="footercontainer">
+             <div class="footerfirst">
+                <img src="fottlogo.png" class="footerlogo">
+                <p>Fresh and delicious traditional Bangladeshi food to delight the whole family.</p>
+                <h3>Follow Us</h3>
+                <a href="https://www.facebook.com" target="_blank" class="foticon"> <i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.github.com" target="_blank" class="foticon"> <i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com" target="_blank" class="foticon"> <i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank" class="foticon"> <i class="fa-brands fa-whatsapp"></i></a>
+             </div>
+             <div class="menulink">
+                <h1>Links</h1>
+                <a href="restaurant.html" class="fotlink">Home</a><br><br>
+                <a href="menu.html" class="fotlink">Menu</a><br><br>
+                <a href="book.html" class="fotlink">Book Table</a><br><br>
+                <a href="about.html" class="fotlink">About Us</a><br><br>
+                <a href="contact.html" class="fotlink">Contact Us</a><br><br>
+                <a href="restaurant.html" class="fotlink">Privacy Policy</a><br><br>
+             </div>
+             <div class="menulink">
+                <h1>Support</h1>
+                <a href="restaurant.html" class="fotlink">Contact</a><br><br>
+                <a href="#" class="fotlink">Support Contact</a><br><br>
+                <a href="#" class="fotlink">Feedback</a>
+             </div>
+             <div class="menulink">
+                <h1>Contact</h1>
+                <a href="restaurant.html" class="fotlink">+44567834557</a><br><br>
+                <a href="#" class="fotlink">indianbrassire@gmail.com</a><br><br>
+                <a href="#" class="fotlink">Bath Road,Cheltenham<br>Glousershire</a>
+             </div>
+         </div>
+    </footer>
+    <p>© copyright 2026 Indian Brasserie | All rights reserved</p>
+</body>
+</html>
