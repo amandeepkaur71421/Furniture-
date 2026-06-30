@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S Electronics</title>
+  <link rel="icon" href="#" />
+  <style>
+    /* Base */
+:root{
+  --bg: #0b1220;
+  --surface: rgba(255,255,255,0.06);
+  --surface-2: rgba(255,255,255,0.1);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.7);
+  --brand: #00e5ff;
+  --brand-2: #7c5cff;
+  --border: rgba(255,255,255,0.14);
+  --shadow: 0 20px 60px rgba(0,0,0,0.35);
+  --radius: 16px;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1000px 600px at 20% 0%, rgba(124,92,255,0.25), transparent 55%),
+              radial-gradient(900px 600px at 95% 10%, rgba(0,229,255,0.18), transparent 50%),
+              var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: 10px;
+  background: #fff;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 10px;
+  z-index: 999;
+}
+.skip-link:focus{ left: 10px; }
+
+.container{
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+/* Header */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(11,18,32,0.65);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  gap: 1rem;
+}
+
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(0,229,255,0.25), rgba(124,92,255,0.25));
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  color: var(--brand);
+  font-size: 18px;
+}
+.brand-mark--footer{ color: var(--brand-2); }
+
+.brand-name{ font-weight: 800; font-size: 18px; letter-spacing: 0.2px; }
+.brand-tag{ font-size: 12.5px; color: var(--muted); }
+
+.menu-toggle{
+  display: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.site-nav{ display: flex; }
+.nav-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-list a{
+  color: var(--muted);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: background 160ms ease, color 160ms ease;
+}
+.nav-list a:hover{
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+}
+.nav-list a.active{
+  color: var(--text);
+  background: rgba(0,229,255,0.12);
+  border: 1px solid rgba(0,229,255,0.25);
+}
+
+/* Hero */
+.hero{
+  position: relative;
+  min-height: 72vh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-media{
+  position: absolute;
+  inset: 0;
+}
+.hero-media img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+.hero-overlay{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(11,18,32,0.92) 0%, rgba(11,18,32,0.55) 55%, rgba(11,18,32,0.85) 100%);
+}
+
+.hero-content{
+  position: relative;
+  z-index: 2;
+  padding: 4rem 0;
+}
+
+.hero-content h1{
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 3.6vw, 3.3rem);
+  letter-spacing: -0.02em;
+}
+.hero-content p{
+  margin: 0 0 1.4rem;
+  max-width: 56ch;
+  color: rgba(255,255,255,0.78);
+  font-size: 1.05rem;
+}
+
+.hero-actions{ display: flex; flex-wrap: wrap; gap: 12px; }
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+  transition: transform 120ms ease, background 160ms ease, border-color 160ms ease;
+  color: var(--text);
+  background: rgba(255,255,255,0.06);
+}
+.btn:hover{ transform: translateY(-1px); }
+
+.btn-primary{
+  background: linear-gradient(135deg, rgba(0,229,255,0.18), rgba(124,92,255,0.22));
+  border-color: rgba(0,229,255,0.35);
+}
+.btn-ghost{
+  background: rgba(255,255,255,0.04);
+}
+
+.hero-stats{
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stat{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.stat-value{ font-weight: 800; font-size: 1.1rem; }
+.stat-label{ color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+
+/* Sections */
+.section{ padding: 4.5rem 0; }
+.section-head{ margin-bottom: 1.8rem; }
+.section-head h2{ margin: 0 0 0.35rem; font-size: 2rem; }
+.section-head p{ margin: 0; color: var(--muted); }
+
+/* Products cards */
+.product-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.card{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.card-image{
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,0.03);
+}
+.card-icon{
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(0,229,255,0.12);
+  border: 1px solid rgba(0,229,255,0.25);
+  color: var(--brand);
+  margin-bottom: 12px;
+}
+.card h3{ margin: 0 0 8px; font-size: 1.1rem; }
+.card p{ margin: 0 0 14px; color: rgba(255,255,255,0.75); }
+.card-link{
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.card-link:hover{ background: rgba(0,229,255,0.10); border-color: rgba(0,229,255,0.25); }
+
+
+/* Services */
+.feature-row{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.feature{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.feature-badge{
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: rgba(124,92,255,0.14);
+  border: 1px solid rgba(124,92,255,0.28);
+  color: var(--brand-2);
+  margin-bottom: 12px;
+}
+.feature h3{ margin: 0 0 8px; }
+.feature p{ margin: 0; color: rgba(255,255,255,0.75); }
+
+/* Contact */
+.contact-wrap{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.contact-info{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.contact-info h2{ margin: 0 0 10px; font-size: 1.8rem; }
+.contact-info p{ margin: 0 0 16px; color: rgba(255,255,255,0.78); }
+
+.contact-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+  color: rgba(255,255,255,0.82);
+}
+.contact-list li i{ color: var(--brand); margin-right: 10px; }
+
+.contact-highlights{
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+.highlight{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+}
+.highlight i{ color: var(--brand-2); }
+
+.contact-form{
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.form-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+label{
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+  color: rgba(255,255,255,0.86);
+  font-weight: 600;
+}
+
+input, select, textarea{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  outline: none;
+}
+
+input::placeholder, textarea::placeholder{ color: rgba(255,255,255,0.55); }
+
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(0,229,255,0.35);
+  box-shadow: 0 0 0 4px rgba(0,229,255,0.12);
+}
+
+.form-note{ margin: 12px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+/* Footer */
+.site-footer{
+  border-top: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+}
+
+.footer-inner{
+  padding: 2.5rem 0;
+  display: grid;
+  grid-template-columns: 0.95fr 1.5fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.footer-brand{ display: flex; align-items: center; gap: 14px; }
+.footer-title{ font-weight: 900; font-size: 1.1rem; margin-bottom: 4px; }
+.footer-sub{ color: var(--muted); font-size: 0.95rem; }
+
+.footer-links{ display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+.footer-col{ display: grid; gap: 10px; }
+.footer-heading{ font-weight: 800; margin-bottom: 2px; color: rgba(255,255,255,0.9); }
+.footer-col a{
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.footer-col a:hover{ border-color: rgba(0,229,255,0.25); background: rgba(0,229,255,0.08); color: var(--text); }
+
+.footer-bottom{
+  padding: 18px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.footer-bottom-inner{ display: flex; justify-content: space-between; gap: 10px; color: var(--muted); }
+.muted{ color: var(--muted); }
+
+/* Responsive */
+@media (max-width: 900px){
+  .product-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feature-row{ grid-template-columns: 1fr; }
+  .contact-wrap{ grid-template-columns: 1fr; }
+  .footer-inner{ grid-template-columns: 1fr; }
+  .footer-links{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+@media (max-width: 720px){
+  .menu-toggle{ display: inline-flex; }
+  .site-nav{ width: 100%; }
+  .nav-list{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(11,18,32,0.92);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 74px;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+  .nav-list.open{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-list a{ padding: 12px 14px; }
+  .header-inner{ position: relative; }
+
+  .hero-stats{ grid-template-columns: 1fr; }
+  .product-grid{ grid-template-columns: 1fr; }
+}
+
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <i class="fa-solid fa-microchip"></i>
+        </div>
+        <div>
+          <div class="brand-name">S Electronics</div>
+          <div class="brand-tag">Electronics • Gadgets • Accessories</div>
+        </div>
+      </div>
+
+      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" data-menu-toggle>
+        <span class="sr-only">Menu</span>
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="nav-list" data-menu>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-media" aria-hidden="true">
+        <!-- Replace src with your real image file if you have one -->
+        <img
+          src="motherboard.jpg"
+          alt="Electronics and technology" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1>Upgrade Your Everyday Tech</h1>
+        <p>
+          Laptops, TVs, mobile devices, audio gear and smart accessories—curated for performance,
+          reliability, and style.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#products"><i class="fa-solid fa-cart-shopping"></i> Shop Now</a>
+          <a class="btn btn-ghost" href="#contact"><i class="fa-regular fa-envelope"></i> Get Support</a>
+        </div>
+        <div class="hero-stats" role="list">
+          <div class="stat" role="listitem">
+            <div class="stat-value">+500</div>
+            <div class="stat-label">Featured items</div>
+          </div>
+          <div class="stat" role="listitem">
+            <div class="stat-value">2 Years</div>
+            <div class="stat-label">Warranty options</div>
+          </div>
+          <div class="stat" role="listitem">
+            <div class="stat-value">Fast</div>
+            <div class="stat-label">Delivery</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section products" id="products" aria-label="Products">
+      <div class="container">
+        <div class="section-head">
+          <h2>Popular Electronics</h2>
+          <p>Pick your next device from categories customers love.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h3>Smart Phones</h3>
+            <p>High-performance cameras, fast charging, and smooth displays.</p>
+            <a class="card-link" href="#contact">Ask for availability</a>
+          </article>
+
+          <article class="card">
+            <img class="card-image" src="leptop.jpg" alt="Laptop computing" loading="lazy" />
+            <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-laptop"></i></div>
+            <h3>Laptops</h3>
+            <p>Work and study ready—lightweight, powerful, and reliable.</p>
+            <a class="card-link" href="#contact">Get recommendations</a>
+          </article>
+
+          <article class="card">
+            <img class="card-image" src="earpods.jpg" alt="Smart TV and home entertainment" loading="lazy" />
+            <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-tv"></i></div>
+            <h3>Smart TVs</h3>
+            <p>Crisp visuals and immersive sound for movies and sports.</p>
+            <a class="card-link" href="#contact">Compare models</a>
+          </article>
+
+          <article class="card">
+            <img class="card-image" src="headphone.jpg" alt="Headphones audio" loading="lazy" />
+            <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-headphones"></i></div>
+            <h3>Audio & Headsets</h3>
+            <p>Deep bass, clear calls, and comfort for long sessions.</p>
+            <a class="card-link" href="#contact">Find the right fit</a>
+          </article>
+
+          <article class="card">
+            <img class="card-image" src="gaming.jpg" alt="Gaming accessories" loading="lazy" />
+            <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-gamepad"></i></div>
+            <h3>Gaming Gear</h3>
+            <p>Keyboards, mice, monitors and controllers for every setup.</p>
+            <a class="card-link" href="#contact">Build your setup</a>
+          </article>
+
+          <article class="card">
+            <img class="card-image" src="camera.jpg" alt="Electronic accessories" loading="lazy" />
+            <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div>
+            <h3>Accessories</h3>
+            <p>Cables, chargers, cases, and smart add-ons—premium quality.</p>
+            <a class="card-link" href="#contact">Recommended picks</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services" aria-label="Services">
+      <div class="container">
+        <div class="section-head">
+          <h2>What We Offer</h2>
+          <p>Support that helps you get the best from your devices.</p>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature">
+            <div class="feature-badge"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <h3>Repairs & Setup</h3>
+            <p>Diagnostics, installation guidance, and smooth setup for new purchases.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-badge"><i class="fa-solid fa-truck-fast"></i></div>
+            <h3>Fast Delivery</h3>
+            <p>Trackable shipping with careful packaging for safe arrival.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-badge"><i class="fa-solid fa-headset"></i></div>
+            <h3>Customer Support</h3>
+            <p>Quick help via message—product questions, warranty guidance, and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-label="Contact">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>
+              Have questions about devices, compatibility, or warranty? Send a message and we’ll
+              respond as soon as possible.
+            </p>
+
+            <ul class="contact-list">
+              <li><i class="fa-solid fa-location-dot"></i> 14 Nailsworth Terrace, Ilford</li>
+              <li><i class="fa-solid fa-phone"></i> +1 5679 567 765</li>
+              <li><i class="fa-solid fa-envelope"></i> support@S Electronics.example</li>
+            </ul>
+
+            <div class="contact-highlights">
+              <div class="highlight"><i class="fa-solid fa-star"></i> Verified products</div>
+              <div class="highlight"><i class="fa-solid fa-star"></i> Friendly guidance</div>
+              <div class="highlight"><i class="fa-solid fa-star"></i> Warranty options</div>
+            </div>
+          </div>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="form-row">
+              <label>
+                Full name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+            </div>
+
+            <label>
+              What do you need?
+              <select name="topic" required>
+                <option value="">Select a topic</option>
+                <option>Smart phone</option>
+                <option>Laptop</option>
+                <option>TV</option>
+                <option>Audio</option>
+                <option>Accessories</option>
+                <option>Repair/Setup</option>
+              </select>
+            </label>
+
+            <label>
+              Message
+              <textarea name="message" rows="5" placeholder="Tell us about your requirements..." required></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+
+            <p class="form-note">This is a front-end demo form (no backend connected).</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand-mark brand-mark--footer" aria-hidden="true">
+          <i class="fa-solid fa-microchip"></i>
+        </div>
+        <div>
+          <div class="footer-title">S Electronics</div>
+          <div class="footer-sub">Electronics devices made simple.</div>
+        </div>
+      </div>
+
+      <div class="footer-links" aria-label="Footer links">
+        <div class="footer-col">
+          <div class="footer-heading">Company</div>
+          <a href="#home">Home</a>
+          <a href="#products">Products</a>
+          <a href="#services">Services</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-heading">Support</div>
+          <a href="#contact">Contact</a>
+          <a href="#">Warranty</a>
+          <a href="#">Returns</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-heading">Follow</div>
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i> X</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© <span id="year"></span> S Electronics. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.querySelector('[data-menu-toggle]');
+    const menu = document.querySelector('[data-menu]');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('open');
+      });
+
+      // Close menu on link click (mobile)
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          btn.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('open');
+        });
+      });
+    }
+
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
