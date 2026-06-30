@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Brasserie</title>
+    <link rel="icon" href="Indian Brasserie (1).png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <style>
+ body
+{
+    margin: 0px;
+    padding: 0px;
+    background-color: #f5fcf4;
+}
+.menu
+{
+    display: flex;
+    flex-direction: row;
+}
+.logo
+{
+    height: 160px;
+    width: 160px;
+    
+}
+.logoimage
+{
+    height: 160px;
+    width: 160px;
+    margin-left: 90px;
+}
+.navmenu
+{
+    margin-left: 450px;
+    place-content: center;
+}
+.navlist
+{
+    list-style-type: none;
+}
+.navlist, li 
+{
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+   /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;*/
+    
+}
+.navlist li a
+{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 9px;
+}
+.navlist li a:hover
+{
+    color: #26643b;
+}
+.navlist .book a 
+{
+    background-color:#26643b;
+    color: #E8E8E8;
+    border-radius: 8px;
+    padding: 10px;
+}
+.navlist .book a:hover
+{
+    background-color: #26643b;
+    color: #E8E8E8;
+} 
+.next
+{  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 90px;
+    gap: 50px;
+    margin-left: 290px;
+    margin-bottom: 300px;
+}
+.time
+{
+    background-color: #d6e5d8;
+    height: 250px;
+    width: 250px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 0px gray;
+}
+.next .time .clock
+{
+    padding-top: 56px;
+    padding-left: 64px;
+    height:80px ;
+    width:80px ;
+  
+}
+.heading
+{
+    padding-left: 45px;
+}
+.write
+{
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-left: 45px;
+}
+.loc
+{
+    background-color: #d6e5d8;
+    height: 250px;
+    width: 250px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 0px gray;
+}
+.next, .address, .location
+{
+     height:80px ;
+     width: 80px;
+     padding-top: 56px;
+     padding-left: 64px;
+}
+.call
+{
+    background-color: #d6e5d8;
+    height: 250px;
+    width: 250px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 0px gray;
+}
+.phone
+{
+    padding-top: 56px;
+    padding-left: 64px;
+    height:80px ;
+    width:80px ;
+}
+
+footer
+{
+    background-color: #d6e5d8;
+    height: 400px;
+    width: auto;
+}
+.footercontainer
+{
+    padding-top: 50px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.footerfirst
+{
+    margin-left: 50px;
+    margin-right: 40px;
+}
+.footerlogo
+{
+    height: 150px;
+    width: 150px;
+}
+.menulink
+{
+    margin-left: 60px;
+}
+.foticon
+{
+    color: #26643b;
+}
+.fotlink
+{
+    text-decoration: none;
+    color: black;
+}
+.bookcontainer
+{
+    margin-left: 120px;
+    margin-right: 150px;
+}
+.bookheading
+{
+    margin-left: 20px;
+}
+.booklabel
+{
+    margin-left: 20px;
+    font-size: 20px;
+}
+.booktext
+{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 0px;
+    background-color: #d6e5d8;
+    height: 60px;
+    width: 620px;
+    margin-left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.booktext1
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    border: 0px;
+    background-color: #d6e5d8;
+    height: 200px;
+    width: 1260px;
+    margin-left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.press
+{
+   text-decoration: none;
+    background-color: #26643b;
+    color: #E8E8E8;
+    font-size: 20px;
+    border-style: none;
+    border-radius: 8px;
+    padding: 20px;
+    margin-left: 20px;
+    margin-bottom: 100px;    
+}
+
+    </style>
+</head>
+<body>
+       <div class="menu">
+            <div class="logo">
+                <img src="logo.png" alt="LOGO" class="logoimage">
+            </div>
+            <nav class="navmenu">
+                 <ul class="navlist">
+                   <li><a href="restaurant.html">Home</a></li>
+                   <li><a href="menu.html">Menu</a></li>
+                   <li><a href="about.html">About</a></li>
+                   <li><a href="contact.html">Contact</a></li>
+                   <li class="book"><a href="book.html">Book Table</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="next">
+           <div class="time">
+              <img src="clock.png" class="clock">
+              <h1 class="heading">5pm-12pm</h1>
+              <p class="write">Opening Hours</p>
+           </div>
+           <div class="loc">
+              <img src="location.png" class="location">
+              <h2 class="heading">Bath Road</h2>
+              <p class="write">Address</p>
+           </div>
+           <div class="call">
+              <img src="call.png" class="phone">
+              <h2 class="heading">+44986772812</h2>
+              <p class="write">Call Now</p>
+           </div>
+        </div>
+        <div class="bookcontainer">
+              <h1 class="bookheading">Contact & Inquiry</h1>
+              <form method="post" action="#">
+                <table>
+                    <tr>
+                        <td><b><label class="booklabel">First Name</label> </b></td>
+                        <td><b><label class="booklabel">Last Name</label> </b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="booktext" required>
+                        </td>
+                        <td>
+                            <input type="text" class="booktext" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><label class="booklabel">Email</label> </b></td>
+                        <td><b><label class="booklabel">Subject</label> </b></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="email" class="booktext" required>
+                        </td>
+                        <td>
+                            <input type="text" class="booktext" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><label class="booklabel">Message</label> </b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><textarea class="booktext1" rows="5" cols="10"></textarea></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Send" class="press"> 
+              </form>
+        </div>
+         <footer>
+         <div class="footercontainer">
+             <div class="footerfirst">
+                <img src="fottlogo.png" class="footerlogo">
+                <p>Fresh and delicious traditional Bangladeshi food to delight the whole family.</p>
+                <h3>Follow Us</h3>
+                <a href="https://www.facebook.com" target="_blank" class="foticon"> <i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.github.com" target="_blank" class="foticon"> <i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com" target="_blank" class="foticon"> <i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.whatsapp.com" target="_blank" class="foticon"> <i class="fa-brands fa-whatsapp"></i></a>
+             </div>
+             <div class="menulink">
+                <h1>Links</h1>
+                <a href="restaurant.html" class="fotlink">Home</a><br><br>
+                <a href="menu.html" class="fotlink">Menu</a><br><br>
+                <a href="book.html" class="fotlink">Book Table</a><br><br>
+                <a href="about.html" class="fotlink">About Us</a><br><br>
+                <a href="contact.html" class="fotlink">Contact Us</a><br><br>
+                <a href="restaurant.html" class="fotlink">Privacy Policy</a><br><br>
+             </div>
+             <div class="menulink">
+                <h1>Support</h1>
+                <a href="restaurant.html" class="fotlink">Contact</a><br><br>
+                <a href="#" class="fotlink">Support Contact</a><br><br>
+                <a href="#" class="fotlink">Feedback</a>
+             </div>
+             <div class="menulink">
+                <h1>Contact</h1>
+                <a href="restaurant.html" class="fotlink">+44567834557</a><br><br>
+                <a href="#" class="fotlink">indianbrassire@gmail.com</a><br><br>
+                <a href="#" class="fotlink">Bath Road,Cheltenham<br>Glousershire</a>
+             </div>
+         </div>
+    </footer>
+    <p>© copyright 2026 Indian Brasserie | All rights reserved</p>
+     
+</body>
+</html>
